@@ -1,0 +1,255 @@
+/* FilterSidebar.module.css */
+
+.sidebar {
+    width: 18rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+/* Customizable Section */
+.customizableWrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 1.25rem;
+    margin-bottom: 0;
+}
+
+.customizableLabel {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #000000;
+    cursor: pointer;
+}
+
+/* Accordion Item */
+.accordionItem {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.accordionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    transition: background-color 0.15s ease;
+}
+
+.accordionHeader:hover {
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.accordionTitleWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+}
+
+.accordionTitle {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: #000000;
+    line-height: 1.2;
+}
+
+.accordionSubtitle {
+    font-size: 0.875rem;
+    color: #888888;
+    font-weight: 400;
+}
+
+.accordionIcon {
+    transition: transform 0.2s ease-in-out;
+    flex-shrink: 0;
+    color: #000000;
+}
+
+.accordionIconRotated {
+    transform: rotate(180deg);
+}
+
+/* Accordion Content */
+.accordionContent {
+    padding-bottom: 1.25rem;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.unselectAllWrapper {
+    display: block;
+    text-align: left;
+    margin-bottom: 0.75rem;
+    width: 100%;
+}
+
+.unselectAllButton {
+    font-size: 0.875rem;
+    color: #888888;
+    text-decoration: underline;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease-in-out;
+    padding: 0;
+    margin: 0;
+}
+
+.unselectAllButton:hover {
+    color: #000000;
+}
+
+/* Options List */
+.optionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.optionLabel {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.optionLabel:hover {
+    opacity: 0.8;
+}
+
+.optionText {
+    color: #000000;
+    font-weight: 400;
+    line-height: 1.4;
+}
+
+/* Checkbox Styling */
+.checkbox {
+    height: 1rem;
+    width: 1rem;
+    border-radius: 0.25rem;
+    border: 1px solid #cccccc;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    position: relative;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    transition: all 0.15s ease;
+}
+
+.checkbox:checked {
+    background-color: #000000;
+    border-color: #000000;
+}
+
+.checkbox:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 0px;
+    width: 4px;
+    height: 8px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox:focus {
+    outline: 2px solid #000000;
+    outline-offset: 2px;
+}
+
+.checkbox:hover {
+    border-color: #000000;
+}
+
+/* ===== MOBILE RESPONSIVE STYLES ===== */
+
+/* Tablets and below */
+@media (max-width: 1024px) {
+    .sidebar {
+        width: 50%;
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 50%;
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .accordionHeader {
+        padding-top: 1rem;
+        padding-bottom: 1rem;
+    }
+
+    .customizableWrapper {
+        padding-bottom: 1rem;
+    }
+
+    .accordionContent {
+        padding-bottom: 1rem;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .sidebar {
+        width: 45%;
+        padding-left: 0.50rem;
+        padding-right: 0.50rem;
+    }
+
+    .accordionTitle {
+        font-size: 0.8125rem;
+    }
+
+    .accordionSubtitle {
+        font-size: 0.8125rem;
+    }
+
+    .customizableLabel {
+        font-size: 0.8125rem;
+    }
+
+    .optionLabel {
+        font-size: 0.8125rem;
+    }
+
+    .unselectAllButton {
+        font-size: 0.8125rem;
+    }
+
+    .checkbox {
+        height: 1.125rem;
+        width: 1.125rem;
+    }
+
+    .checkbox:checked::after {
+        left: 4px;
+        top: 1px;
+        width: 4px;
+        height: 9px;
+    }
+}

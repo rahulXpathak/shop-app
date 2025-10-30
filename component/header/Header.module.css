@@ -1,0 +1,155 @@
+/* Reusable Container */
+.container {
+  max-width: 1248px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem; /* px-4 */
+  padding-right: 1rem; /* px-4 */
+}
+
+/* Header */
+.header {
+  width: 100%;
+  background-color: #fff;
+  color: #000;
+  position: relative;
+}
+
+/* Announcement Bar */
+.announcementBar {
+  background-color: #000;
+  color: #ec4899; /* text-pink-500 */
+  padding-top: 0.625rem; /* py-2.5 (10px) */
+  padding-bottom: 0.625rem;
+}
+.announcementContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.announcementItemMobile {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+}
+.announcementItemMobile > *:not(:last-child) {
+  margin-right: 0.5rem; /* space-x-2 */
+}
+
+.announcementItemDesktop {
+  display: none; /* hidden by default */
+  align-items: center;
+  font-size: 0.875rem; /* text-sm */
+  line-height: 1.25rem;
+}
+.announcementItemDesktop > *:not(:last-child) {
+  margin-right: 0.5rem; /* space-x-2 */
+}
+.announcementItemDesktop.ml16 {
+  margin-left: 4rem; /* ml-16 */
+}
+
+/* Main Nav */
+.mainNav {
+  border-bottom: 1px solid #e5e7eb; /* border-b border-gray-200 */
+}
+
+/* Desktop Nav Wrapper */
+.desktopNav {
+  display: none; /* hidden */
+}
+
+/* Desktop Nav Links */
+.desktopNavLinksContainer {
+  display: none; /* hidden */
+}
+
+
+/* --- Media Query for md (768px and up) --- */
+@media (min-width: 768px) {
+  .announcementItemMobile {
+    display: none; /* md:hidden */
+  }
+  .announcementItemDesktop {
+    display: flex; /* md:flex */
+  }
+
+  .desktopNav {
+    display: flex; /* md:flex */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    padding-top: 1.5rem; /* py-6 */
+    padding-bottom: 1.5rem;
+  }
+  .desktopNavLogoIcon {
+    position: absolute;
+    left: 0;
+  }
+  .desktopNavLogoText {
+    font-size: 3rem; /* text-5xl from your code */
+    font-weight: 700; /* font-bold from your code */
+    letter-spacing: 1px; /* tracking-[1px] */
+    line-height: 1; /* leading-none */
+    color: #000; /* text-black */
+    text-decoration: none;
+  }
+  .desktopNavActions {
+    position: absolute;
+    right: 0;
+  }
+  .desktopNavActionsInner {
+    display: flex;
+    align-items: center;
+  }
+  /* space-x-4 */
+  .desktopNavActionsInner > *:not(:last-child) {
+    margin-right: 1rem;
+  }
+  .actionButton {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #000;
+  }
+  .actionButton:hover {
+    color: #4b5563; /* hover:text-gray-700 */
+  }
+
+  .desktopNavLinksContainer {
+    display: flex; /* md:flex */
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem; /* py-4 */
+    padding-bottom: 1rem;
+  }
+  /* space-x-8 */
+  .desktopNavLinksContainer > *:not(:last-child) {
+    margin-right: 2rem;
+  }
+  .desktopNavLink {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    text-transform: uppercase;
+    letter-spacing: 0.05em; /* tracking-wider */
+    line-height: 1.25; /* leading-tight */
+    color: #252020;
+    text-decoration: none;
+  }
+}
+
+/* --- Media Query for lg (1024px and up) --- */
+@media (min-width: 1024px) {
+  .announcementItemDesktop.lgFlex {
+    display: flex; /* lg:flex */
+  }
+  /* lg:space-x-12 */
+  .desktopNavLinksContainer > *:not(:last-child) {
+    margin-right: 3rem;
+  }
+}

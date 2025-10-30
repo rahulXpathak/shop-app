@@ -2,17 +2,17 @@
 
 import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
+import styles from './FilterSidebar.module.css';
 
 // --- This is the mapping from your design to the API ---
 const categoryMap: Record<string, string> = {
   "Men": "men's clothing",
   "Women": "women's clothing",
-  "Jewelery": "jewelery", // The API uses this spelling
-  "Electronics": "electronics",
+  "Baby & Kids": "jewelery", // Using available API category
 };
-// These are the names we'll show in the UI
-const displayCategories = Object.keys(categoryMap); // ["Men", "Women", "Jewelery", "Electronics"]
 
+// These are the names we'll show in the UI
+const displayCategories = Object.keys(categoryMap);
 
 // --- Accordion Item Component ---
 const FilterAccordionItem = ({
@@ -28,11 +28,8 @@ const FilterAccordionItem = ({
   onCategoryChange: (apiCategory: string) => void;
   onClearFilters: () => void;
 }) => {
-  // Accordions start closed, except for "IDEAL FOR"
   const [isOpen, setIsOpen] = useState(title === "IDEAL FOR");
 
-  // This function gets the display text (e.g., "Men")
-  // and finds the API text (e.g., "men's clothing")
   const handleChange = (displayOption: string) => {
     const apiCategory = categoryMap[displayOption];
     if (apiCategory) {
@@ -40,70 +37,70 @@ const FilterAccordionItem = ({
     }
   };
   
-  // This function clears only the "IDEAL FOR" filters
   const handleUnselectAll = () => {
-    // We only call onClearFilters, which is now correct
     onClearFilters();
   };
 
   return (
-    <div className="border-b border-gray-200">
+    <div className={styles.accordionItem}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex justify-between items-center w-full py-5"
+        className={styles.accordionHeader}
       >
-        <div className="flex flex-col items-start">
-          <span className="text-sm font-bold uppercase">{title}</span>
-          {/* --- This shows "All" only when the accordion is CLOSED --- */}
+        <div className={styles.accordionTitleWrapper}>
+          <span className={styles.accordionTitle}>{title}</span>
           {!isOpen && (
-            <span className="text-sm text-gray-500 mt-1">All</span>
+            <span className={styles.accordionSubtitle}>All</span>
           )}
         </div>
         <ChevronDown 
           size={16} 
-          className={`transition-transform ${isOpen ? 'rotate-180' : ''}`} 
+          strokeWidth={2}
+          className={`${styles.accordionIcon} ${isOpen ? styles.accordionIconRotated : ''}`} 
         />
       </button>
       
-      {/* --- This is the open content, matching your design --- */}
       {isOpen && (
-        <div className="pb-5">
-          <div className="flex justify-end mb-2">
-            <button 
-              onClick={handleUnselectAll}
-              className="text-sm text-gray-500 hover:text-black underline"
-            >
-              Unselect all
-            </button>
-          </div>
-
-          <div className="flex flex-col gap-3">
-            {options.map((option) => {
-              const apiCategory = categoryMap[option];
-              const isChecked = selectedCategories.includes(apiCategory);
-              
-              return (
-                <label 
-                  key={option} 
-                  className="flex items-center gap-3 text-sm"
+        <div className={styles.accordionContent}>
+          {options.length > 0 && (
+            <>
+              <div className={styles.unselectAllWrapper}>
+                <button 
+                  onClick={handleUnselectAll}
+                  className={styles.unselectAllButton}
                 >
-                  <input 
-                    type="checkbox"
-                    checked={isChecked}
-                    onChange={() => handleChange(option)}
-                    className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
-                  />
-                  <span className="capitalize">{option}</span>
-                </label>
-              );
-            })}
-          </div>
+                  Unselect all
+                </button>
+              </div>
+
+              <div className={styles.optionsList}>
+                {options.map((option) => {
+                  const apiCategory = categoryMap[option];
+                  const isChecked = selectedCategories.includes(apiCategory);
+                  
+                  return (
+                    <label 
+                      key={option} 
+                      className={styles.optionLabel}
+                    >
+                      <input 
+                        type="checkbox"
+                        checked={isChecked}
+                        onChange={() => handleChange(option)}
+                        className={styles.checkbox}
+                      />
+                      <span className={styles.optionText}>{option}</span>
+                    </label>
+                  );
+                })}
+              </div>
+            </>
+          )}
         </div>
       )}
     </div>
   );
 };
-
 
 // --- Main Sidebar Component ---
 const FilterSidebar = ({
@@ -116,8 +113,6 @@ const FilterSidebar = ({
   onClearFilters: () => void;
 }) => {
 
-  // These are the sections from your design
-  // "IDEAL FOR" is now dynamic
   const staticSections = [
     { title: "OCCASION", options: [] },
     { title: "WORK", options: [] },
@@ -129,19 +124,19 @@ const FilterSidebar = ({
   ];
 
   return (
-    <aside className="w-72 py-8">
-      {/* 1. Customizable Checkbox (static) */}
-      <div className="flex items-center gap-3 border-b border-gray-200 pb-5">
+    <aside className={styles.sidebar}>
+      {/* Customizable Checkbox */}
+      <div className={styles.customizableWrapper}>
         <input 
           type="checkbox" 
           id="customizable" 
-          className="h-4 w-4 rounded border-gray-300 text-black focus:ring-black"
+          className={styles.checkbox}
         />
         <label 
           htmlFor="customizable" 
-          className="text-sm font-bold uppercase"
+          className={styles.customizableLabel}
         >
-          CUSTOMIZBLE
+          CUSTOMIZABLE
         </label>
       </div>
 
