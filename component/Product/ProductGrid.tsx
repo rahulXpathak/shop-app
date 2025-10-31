@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from 'react';
 import ProductCard from "@/component/Product/ProductCard";
+import "./ProductGrid.css"; // <-- plain CSS extracted
 
 // Define a type for the product from the API
 interface ApiProduct {
@@ -24,7 +25,6 @@ interface ProductGridProps {
 }
 
 const ProductGrid: React.FC<ProductGridProps> = ({ selectedCategories, selectedSort }) => {
-  
   // 2. State to hold ALL products from the API
   const [allProducts, setAllProducts] = useState<ApiProduct[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -75,7 +75,7 @@ const ProductGrid: React.FC<ProductGridProps> = ({ selectedCategories, selectedS
           // Assuming 'rate' in the rating object determines popularity
           return b.rating.rate - a.rating.rate;
         case "NEWEST FIRST":
-          // The fakestoreapi doesn't have a reliable 'date' field, 
+          // The fakestoreapi doesn't have a reliable 'date' field,
           // but we can simulate 'newest' by reversing the default ID order.
           // For a real API, you would sort by 'createdAt' descending.
           return b.id - a.id; 
@@ -92,24 +92,24 @@ const ProductGrid: React.FC<ProductGridProps> = ({ selectedCategories, selectedS
   }, [filteredProducts, selectedSort]); // Re-run when filtered list or sort option changes
 
   if (isLoading) {
-    return <p className="py-8">Loading products...</p>;
+    return <p className="pg-loading">Loading products...</p>;
   }
-  
+
   // Display a message if no products match the criteria
   if (sortedProducts.length === 0) {
       return (
-          <p className="py-8 text-lg text-gray-600">
+          <p className="pg-empty">
               No products match the selected filters or categories.
           </p>
       );
   }
 
   return (
-    <div className="py-8">
-      <h2 className="text-3xl font-bold mb-6">
+    <div className="pg-wrap">
+      <h2 className="pg-heading">
         {selectedCategories.length > 0 ? selectedCategories.join(', ').toUpperCase() : 'ALL'} Products
       </h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="pg-grid">
         {sortedProducts.map((product) => (
           <ProductCard 
             key={product.id} 

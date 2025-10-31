@@ -1,0 +1,264 @@
+/* components/Footer.module.css */
+
+.footer {
+    background-color: #000; 
+    color: #fff; 
+    padding: 20px 0; 
+    font-family: sans-serif; 
+}
+
+.contentWrapper {
+    max-width: 1200px; 
+    margin: 0 auto;
+    padding: 0 40px; 
+}
+
+/* -------------------------------------- */
+/* --- Top Section: Newsletter & Contact --- */
+/* -------------------------------------- */
+.topSection {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 30px;
+}
+
+.newsletter {
+    flex: 1; 
+    max-width: 450px;
+}
+
+.contact {
+    flex: 1;
+    max-width: 350px;
+    min-width: 250px;
+}
+
+.heading {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.newsletterForm {
+    display: flex;
+    gap: 10px;
+}
+
+/* CORRECTED: White background input field with black text */
+.emailInput {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #000; 
+    background-color: #FFFFFF; 
+    color: #000; /* Black text for input */
+    font-size: 14px;
+    outline: none;
+    border-radius: 0; 
+}
+
+.emailInput::placeholder {
+    color: #888; /* Slightly gray placeholder text */
+}
+
+
+/* CORRECTED: Black background button with white border */
+.subscribeButton {
+    padding: 10px 20px;
+    background-color: #000; 
+    color: #fff; 
+    border: 1px solid #fff; 
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    text-transform: uppercase;
+}
+
+.subscribeButton:hover {
+    background-color: #333; 
+}
+
+.contactInfo, .contactLink {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ccc;
+    text-decoration: none;
+}
+
+.contactLink:hover {
+    text-decoration: underline;
+}
+
+.currencyContainer {
+    margin-top: 20px;
+}
+
+.currencySelector {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Style for the custom SVG Flag component */
+.flagSvg {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%; 
+    overflow: hidden; 
+}
+
+.currencyCode {
+    margin-left: 5px;
+}
+
+.currencyNote {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 5px;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #ffffff; 
+    margin: 20px 0 40px 0;
+}
+
+/* -------------------------------------- */
+/* --- Bottom Section: Links & Socials --- */
+/* -------------------------------------- */
+.bottomSection {
+    display: grid;
+    /* Two link columns and one column for follow/accepts */
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.followAcceptColumn {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.linkTitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.linkList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.linkItem {
+    margin-bottom: 8px;
+}
+
+.link {
+    text-decoration: none;
+    color: #ccc;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.socialIcons {
+    display: flex;
+    gap: 15px;
+}
+
+.socialIcon {
+    color: #fff;
+    transition: color 0.2s;
+}
+
+.socialIcon:hover {
+    color: #ccc;
+}
+
+/* Payment Icons Styling */
+.paymentIcons {
+    display: flex;
+    flex-wrap: nowrap; /* Ensures all icons stay on one line */
+    gap: 10px; 
+}
+
+.paymentIconWrapper {
+    flex-shrink: 0; 
+    line-height: 0; 
+}
+
+.paymentImage {
+    height: auto; 
+    max-width: 100%;
+}
+
+/* -------------------------------------- */
+/* --- Copyright Bar --- */
+/* -------------------------------------- */
+.copyrightBar {
+    border-top: 1px solid #333;
+    padding: 20px 40px;
+    text-align: center;
+}
+
+.copyrightText {
+    font-size: 12px;
+    color: #777;
+    margin: 0;
+}
+
+
+/* -------------------------------------- */
+/* --- Media Query for Responsiveness --- */
+/* -------------------------------------- */
+@media (max-width: 900px) {
+    .contentWrapper {
+        padding: 0 20px;
+    }
+
+    /* Stack newsletter and contact section */
+    .topSection {
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* Change the bottom links to a 2-column layout */
+    .bottomSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    /* Stack all link columns on smaller screens */
+    .bottomSection {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    /* Ensure newsletter takes full width */
+    .newsletter, .contact {
+        max-width: 100%;
+    }
+
+    .newsletterForm {
+        flex-direction: column;
+    }
+}
