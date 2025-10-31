@@ -1,56 +1,44 @@
-/* ProductGrid.css */
-
-/* py-8 => padding-top: 2rem; padding-bottom: 2rem */
 .pg-wrap {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  /* Ensure the wrapper itself takes up full available space */
   width: 100%; 
 }
 
-/* Loading text: py-8 */
 .pg-loading {
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
 
-/* Empty state: py-8 text-lg text-gray-600 */
 .pg-empty {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 1.125rem; 	    /* text-lg */
-  line-height: 1.75rem; 	  /* text-lg default line-height */
-  color: rgb(75 85 99); 	  /* text-gray-600 */
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  color: rgb(75 85 99);
 }
 
-/* Heading: text-3xl font-bold mb-6 */
 .pg-heading {
-  font-size: 1.875rem; 	    /* text-3xl */
-  line-height: 2.25rem; 	  /* text-3xl */
-  font-weight: 700; 	      /* font-bold */
-  margin-bottom: 1.5rem; 	  /* mb-6 */
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
 }
 
-/* Grid: grid */
 .pg-grid {
   display: grid;
-  gap: 1.5rem; 	            /* gap-6 */
+  gap: 1.5rem;
   
-  /* FIX: Explicitly enforce 2 columns as the default base layout */
   grid-template-columns: repeat(2, minmax(0, 1fr)); 
   
-  /* Add an important safety measure to ensure the grid always uses full width */
   width: 100%; 
 }
 
-/* sm breakpoint (>= 640px): grid-cols-2 */
 @media (min-width: 640px) {
   .pg-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
 
-/* lg breakpoint (>= 1024px): grid-cols-3 (DESKTOP: NO CHANGE) */
 @media (min-width: 1024px) {
   .pg-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

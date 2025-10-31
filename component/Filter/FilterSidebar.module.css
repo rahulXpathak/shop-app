@@ -1,4 +1,4 @@
-/* FilterSidebar.module.css */
+
 
 .sidebar {
     width: 18rem;
@@ -6,7 +6,7 @@
     padding-bottom: 2rem;
 }
 
-/* Customizable Section */
+
 .customizableWrapper {
     display: flex;
     align-items: center;
@@ -25,7 +25,7 @@
     cursor: pointer;
 }
 
-/* Accordion Item */
+
 .accordionItem {
     border-bottom: 1px solid #e5e5e5;
 }
@@ -136,7 +136,7 @@
     line-height: 1.4;
 }
 
-/* Checkbox Styling */
+
 .checkbox {
     height: 1rem;
     width: 1rem;
@@ -180,7 +180,6 @@
 
 /* ===== MOBILE RESPONSIVE STYLES ===== */
 
-/* Tablets and below */
 @media (max-width: 1024px) {
     .sidebar {
         width: 50%;
@@ -189,7 +188,6 @@
     }
 }
 
-/* Mobile devices */
 @media (max-width: 768px) {
     .sidebar {
         width: 50%;
@@ -213,7 +211,6 @@
     }
 }
 
-/* Small mobile devices */
 @media (max-width: 480px) {
     .sidebar {
         width: 45%;

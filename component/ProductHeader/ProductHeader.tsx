@@ -5,12 +5,10 @@ import { ChevronDown, ChevronLeft, Check } from 'lucide-react';
 import styles from './ProductHeader.module.css'; 
 import ProductMobileControls from './ProductMobileControls'; 
 
-// Interface for a simple key-value filter object 
 interface SelectedFilters {
   [key: string]: string[]; 
 }
 
-// Full Interface definition 
 interface ProductHeaderProps {
   isFilterOpen: boolean;
   setIsFilterOpen: (isOpen: boolean) => void;
@@ -40,7 +38,6 @@ const ProductHeader: React.FC<ProductHeaderProps> = (props) => {
     <section className={styles.productHeaderSection}>
       <div className={styles.container}>
         
-        {/* === MOBILE CONTROLS === */}
         <ProductMobileControls 
             isFilterOpen={props.isFilterOpen}
             setIsFilterOpen={props.setIsFilterOpen}
@@ -48,10 +45,8 @@ const ProductHeader: React.FC<ProductHeaderProps> = (props) => {
             onSortChange={props.onSortChange}
         />
         
-        {/* === DESKTOP CONTROLS === */}
         <div className={styles.desktopControlsWrapper}>
             
-            {/* Title Section (Desktop) */}
             <div className={styles.titleSection}>
                 <h1 className={styles.titleHeading}>
                     DISCOVER OUR PRODUCTS
@@ -62,11 +57,9 @@ const ProductHeader: React.FC<ProductHeaderProps> = (props) => {
                 </p>
             </div>
             
-            {/* Desktop Controls Bar */}
             <div className={styles.borderDiv}>
                 <div className={styles.controlsBar}>
                     
-                    {/* Left Section: Item Count & Filter Toggle */}
                     <div className={styles.leftSection}>
                         <span className={styles.itemCountText}>3425 ITEMS</span>
                         
@@ -85,7 +78,6 @@ const ProductHeader: React.FC<ProductHeaderProps> = (props) => {
                         </button>
                     </div>
 
-                    {/* Right Section: Sort Dropdown */}
                     <div className={styles.sortDropdownContainer}>
                         <button
                             onClick={() => setIsSortOpen(!isSortOpen)}

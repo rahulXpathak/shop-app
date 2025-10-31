@@ -190,22 +190,22 @@
     line-height: 1.4;
 }
 
-/* --- VISIBILITY CONTROL VIA MEDIA QUERIES --- */
 
-/* MOBILE DEFAULTS */
+
+
 .desktopControlsWrapper {
     display: none;
 }
 
-/* DESKTOP OVERRIDES */
+
 @media (min-width: 768px) {
-    /* Show the desktop wrapper on desktop */
+    
     .desktopControlsWrapper {
         display: block;
     }
 }
 
-/* Additional responsive adjustments */
+
 @media (max-width: 1024px) {
     .titleHeading {
         font-size: 2.5rem;

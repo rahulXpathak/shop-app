@@ -6,11 +6,11 @@
   padding-bottom: 1.25rem;
 }
 
-/* New: Group for Hamburger and Icon Logo */
+
 .mobileNavLeft {
     display: flex;
     align-items: center;
-    gap: 1.5rem; /* Space between hamburger and icon logo */
+    gap: 1.5rem; 
 }
 
 .hamburgerButton {
@@ -22,30 +22,29 @@
   color: #000;
 }
 
-/* New: Style for the floral icon logo */
 .mobileIconLogo {
-    display: flex; /* Ensure the icon centers if using a wrapper */
+    display: flex; 
     align-items: center;
     color: #000;
 }
 
 .mobileLogoText {
-  /* This is the main text logo (LOGO) in the center */
-  font-size: 1.875rem; /* text-3xl */
-  font-weight: 700; /* font-extrabold */
-  letter-spacing: 0.05em; /* tracking-wider */
+ 
+  font-size: 1.875rem; 
+  font-weight: 700; 
+  letter-spacing: 0.05em; 
   text-decoration: none;
   color: #000;
-  /* Ensure it doesn't shrink or grow */
+  
   flex-shrink: 0; 
   flex-grow: 0;
 }
 
-/* New: Group for Search, Heart, and Cart */
+
 .mobileNavRight {
     display: flex;
     align-items: center;
-    gap: 1rem; /* Space between search, heart, and cart icons */
+    gap: 1rem; 
 }
 
 .mobileActionButton {
@@ -58,10 +57,10 @@
   align-items: center;
 }
 .mobileActionButton:hover {
-  color: #4b5563; /* hover:text-gray-700 */
+  color: #4b5563; 
 }
 
-/* Flyout Menu styles (kept the same) */
+
 .flyoutMenu {
   position: absolute;
   top: 100%;
@@ -77,7 +76,7 @@
   display: flex;
   flex-direction: column;
 }
-/* space-y-5 */
+
 .flyoutNav > * {
   margin-bottom: 1.25rem;
 }
@@ -86,15 +85,15 @@
 }
 
 .flyoutNavLink {
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 500; /* font-medium */
+  font-size: 1.125rem; 
+  font-weight: 500; 
   text-transform: uppercase;
   text-decoration: none;
   color: #000;
 }
 
 .flyoutHr {
-  border-color: #e5e7eb; /* border-gray-200 */
+  border-color: #e5e7eb; 
   border-top-width: 1px;
   border-bottom-width: 0;
   border-left-width: 0;
@@ -106,9 +105,9 @@
 .flyoutActionLink {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* gap-3 */
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 500; /* font-medium */
+  gap: 0.75rem; 
+  font-size: 1.125rem;
+  font-weight: 500; 
   text-decoration: none;
   color: #000;
 }
@@ -116,9 +115,9 @@
 .flyoutLangButton {
   display: flex;
   align-items: center;
-  gap: 0.75rem; /* gap-3 */
-  font-size: 1.125rem; /* text-lg */
-  font-weight: 500; /* font-medium */
+  gap: 0.75rem; 
+  font-size: 1.125rem; 
+  font-weight: 500; 
   background: none;
   border: none;
   padding: 0;
@@ -127,12 +126,12 @@
   text-align: left;
 }
 
-/* --- Media Query for md (768px and up) --- */
+
 @media (min-width: 768px) {
   .mobileNav {
-    display: none; /* md:hidden */
+    display: none; 
   }
   .flyoutMenu {
-    display: none; /* md:hidden */
+    display: none; 
   }
 }

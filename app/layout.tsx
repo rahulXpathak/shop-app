@@ -31,8 +31,8 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'mettā muse',
-    url: 'https://your-website-url.com', // Replace with your final URL
-    logo: 'https://your-website-url.com/logo.svg', // Replace with your final URL
+    url: 'https://your-website-url.com',
+    logo: 'https://your-website-url.com/logo.svg', 
     contactPoint: {
       '@type': 'ContactPoint',
       telephone: '+44 221 133 5360',
@@ -46,7 +46,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {/* Add the schema script to the body */}
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}

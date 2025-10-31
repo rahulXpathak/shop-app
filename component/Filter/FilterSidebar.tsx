@@ -4,17 +4,17 @@ import { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 import styles from './FilterSidebar.module.css';
 
-// --- This is the mapping from your design to the API ---
+
 const categoryMap: Record<string, string> = {
   "Men": "men's clothing",
   "Women": "women's clothing",
-  "Baby & Kids": "jewelery", // Using available API category
+  "Baby & Kids": "jewelery", 
 };
 
-// These are the names we'll show in the UI
+
 const displayCategories = Object.keys(categoryMap);
 
-// --- Accordion Item Component ---
+
 const FilterAccordionItem = ({
   title,
   options,
@@ -102,7 +102,7 @@ const FilterAccordionItem = ({
   );
 };
 
-// --- Main Sidebar Component ---
+
 const FilterSidebar = ({
   selectedCategories,
   onCategoryChange,
@@ -125,7 +125,6 @@ const FilterSidebar = ({
 
   return (
     <aside className={styles.sidebar}>
-      {/* Customizable Checkbox */}
       <div className={styles.customizableWrapper}>
         <input 
           type="checkbox" 
@@ -141,7 +140,6 @@ const FilterSidebar = ({
       </div>
 
       <div>
-        {/* The dynamic "IDEAL FOR" section */}
         <FilterAccordionItem
           title="IDEAL FOR"
           options={displayCategories}
@@ -150,7 +148,6 @@ const FilterSidebar = ({
           onClearFilters={onClearFilters}
         />
         
-        {/* The other static sections */}
         {staticSections.map((section) => (
           <FilterAccordionItem 
             key={section.title} 

@@ -41,18 +41,18 @@ export default function Home() {
 
       <div
         style={{
-          maxWidth: 1248,           // max-w-[1248px]
-          marginLeft: "auto",       // mx-auto
-          marginRight: "auto",      // mx-auto
-          paddingLeft: "1rem",      // px-4
-          paddingRight: "1rem",     // px-4
+          maxWidth: 1248,          
+          marginLeft: "auto",       
+          marginRight: "auto",      
+          paddingLeft: "1rem",      
+          paddingRight: "1rem",     
         }}
       >
         <div
           style={{
-            display: "flex",        // flex
-            flexWrap: "nowrap",     // flex-nowrap
-            gap: "2rem",            // gap-8
+            display: "flex",       
+            flexWrap: "nowrap",     
+            gap: "2rem",            
           }}
         >
           {isFilterOpen && (
@@ -65,7 +65,7 @@ export default function Home() {
 
           <div
             style={{
-              flex: "1 1 0%",       // flex-1
+              flex: "1 1 0%",       
             }}
           >
             <ProductGrid

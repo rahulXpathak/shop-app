@@ -1,17 +1,17 @@
-// components/Footer.tsx
+
 
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Footer.module.css';
 
-// Type for a footer link item
+
 interface FooterLink {
   href: string;
   label: string;
 }
 
-// Data structure for the main links
+
 const ABOUT_US_LINKS: FooterLink[] = [
   { href: '/about', label: 'About Us' },
   { href: '/stories', label: 'Stories' },
@@ -31,7 +31,7 @@ const QUICK_LINKS: FooterLink[] = [
   { href: '/terms', label: 'Terms & Conditions' },
 ];
 
-// Data array for payment icons (located in public/cards)
+
 const PaymentIcons = [
   { src: '/cards/googlePay.svg', alt: 'Google Pay' },
   { src: '/cards/masterCard.svg', alt: 'MasterCard' },
@@ -41,7 +41,7 @@ const PaymentIcons = [
   { src: '/cards/opay.svg', alt: 'O Pay' },
 ];
 
-// Reusable Link Component
+
 const FooterLinkItem: React.FC<FooterLink> = ({ href, label }) => (
   <li className={styles.linkItem}>
     <Link href={href} className={styles.link}>
@@ -50,7 +50,7 @@ const FooterLinkItem: React.FC<FooterLink> = ({ href, label }) => (
   </li>
 );
 
-// Currency SVG Component (Based on your provided SVG)
+
 const UsdFlagIcon: React.FC = () => (
     <svg width="30" height="30" viewBox="0 0 45.6005 24.0002" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.flagSvg}>
         <g clipPath="url(#clip0_flag)">
@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
     <footer className={styles.footer}>
       <div className={styles.contentWrapper}>
         
-        {/* === Top Section: Newsletter & Contact === */}
+        
         <div className={styles.topSection}>
           
           <div className={styles.newsletter}>
@@ -101,7 +101,7 @@ const Footer: React.FC = () => {
               </a>
             </p>
             
-            {/* Currency Selector - USES THE CUSTOM SVG */}
+            
             <div className={styles.currencyContainer}>
               <h4 className={styles.heading}>CURRENCY</h4>
               <div className={styles.currencySelector} title="Transactions will be completed in Euros and a currency reference is available on hover.">
@@ -117,10 +117,10 @@ const Footer: React.FC = () => {
 
         <hr className={styles.divider} />
 
-        {/* === Bottom Section: Links & Socials & Payments === */}
+        
         <div className={styles.bottomSection}>
           
-          {/* About Us Links */}
+         
           <div className={styles.linkColumn}>
             <h4 className={styles.linkTitle}>mettā muse</h4>
             <ul className={styles.linkList}>
@@ -130,7 +130,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Quick Links */}
+          
           <div className={styles.linkColumn}>
             <h4 className={styles.linkTitle}>QUICK LINKS</h4>
             <ul className={styles.linkList}>
@@ -140,7 +140,7 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Follow Us & Payments */}
+          
           <div className={styles.followAcceptColumn}>
             <div className={styles.followUs}>
               <h4 className={styles.linkTitle}>FOLLOW US</h4>
