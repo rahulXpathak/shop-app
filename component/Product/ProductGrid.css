@@ -4,6 +4,8 @@
 .pg-wrap {
   padding-top: 2rem;
   padding-bottom: 2rem;
+  /* Ensure the wrapper itself takes up full available space */
+  width: 100%; 
 }
 
 /* Loading text: py-8 */
@@ -16,24 +18,29 @@
 .pg-empty {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 1.125rem;        /* text-lg */
-  line-height: 1.75rem;       /* text-lg default line-height */
-  color: rgb(75 85 99);       /* text-gray-600 */
+  font-size: 1.125rem; 	    /* text-lg */
+  line-height: 1.75rem; 	  /* text-lg default line-height */
+  color: rgb(75 85 99); 	  /* text-gray-600 */
 }
 
 /* Heading: text-3xl font-bold mb-6 */
 .pg-heading {
-  font-size: 1.875rem;        /* text-3xl */
-  line-height: 2.25rem;       /* text-3xl */
-  font-weight: 700;           /* font-bold */
-  margin-bottom: 1.5rem;      /* mb-6 */
+  font-size: 1.875rem; 	    /* text-3xl */
+  line-height: 2.25rem; 	  /* text-3xl */
+  font-weight: 700; 	      /* font-bold */
+  margin-bottom: 1.5rem; 	  /* mb-6 */
 }
 
-/* Grid: grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 */
+/* Grid: grid */
 .pg-grid {
   display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
-  gap: 1.5rem;                                      /* gap-6 */
+  gap: 1.5rem; 	            /* gap-6 */
+  
+  /* FIX: Explicitly enforce 2 columns as the default base layout */
+  grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  
+  /* Add an important safety measure to ensure the grid always uses full width */
+  width: 100%; 
 }
 
 /* sm breakpoint (>= 640px): grid-cols-2 */
@@ -43,7 +50,7 @@
   }
 }
 
-/* lg breakpoint (>= 1024px): grid-cols-3 */
+/* lg breakpoint (>= 1024px): grid-cols-3 (DESKTOP: NO CHANGE) */
 @media (min-width: 1024px) {
   .pg-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));

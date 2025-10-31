@@ -1,7 +1,9 @@
 /* ProductCard.module.css */
 
+/* --- Base Card Styles (NOW FLUID FOR DESKTOP TOO) --- */
 .card {
-    width: 300px;
+    /* REMOVED: width: 300px; */ 
+    width: 100%; /* Make card fluid to fill its grid column */
     height: auto;
     position: relative;
     background-color: #ffffff;
@@ -17,8 +19,11 @@
 }
 
 .imageWrapper {
-    width: 300px;
-    height: 320px;
+    /* REMOVED: width: 300px; height: 320px; */
+    width: 100%; /* Image wrapper also fluid */
+    height: 0; /* Use padding-top for aspect ratio */
+    padding-top: 106.66%; /* Maintain 300x320 aspect ratio (320/300 * 100%) */
+    position: relative; /* For absolute positioning of the image */
     overflow: hidden;
     background-color: #f5f5f5;
     display: flex;
@@ -27,6 +32,9 @@
 }
 
 .image {
+    position: absolute; /* Position image within the aspect-ratio wrapper */
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: contain;
@@ -57,6 +65,7 @@
     line-clamp: 2;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: normal; /* Ensure title can wrap if needed */
 }
 
 .titleLink {
@@ -71,7 +80,7 @@
 /* Footer (Login Info & Wishlist) */
 .footer {
     display: flex;
-    align-items: flex-start;
+    align-items: flex-start; 
     justify-content: space-between;
     margin-top: 4px;
     gap: 8px;
@@ -82,8 +91,9 @@
     color: #666666;
     margin: 0;
     line-height: 1.3;
-    max-width: 240px;
-    flex: 1;
+    flex: 1; /* Allows it to take up available space */
+    white-space: normal; /* Allow login info to wrap naturally */
+    word-break: break-word; /* Prevent long words from overflowing */
 }
 
 .loginLink {
@@ -106,7 +116,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
+    flex-shrink: 0; 
     margin-top: -2px;
     position: relative;
     z-index: 10;
@@ -123,7 +133,6 @@
     transform: scale(0.95);
 }
 
-/* Wishlisted state - Pink filled heart */
 .wishlisted {
     color: #e91e63;
     animation: heartBeat 0.3s ease-in-out;
@@ -141,24 +150,22 @@
     }
 }
 
-/* Mobile Responsive */
-@media (max-width: 768px) {
-    .card {
-        width: 100%;
-    }
+/* --- Responsive Styles (Mobile/Tablet) --- */
 
-    .imageWrapper {
-        width: 100%;
-        height: 280px;
-    }
+/* Tablet/Small Desktop (768px and below) */
+@media (max-width: 768px) {
+    /* Card width is already 100% by default now */
+    /* Image wrapper and image aspect ratio logic is already in base */
 
     .title {
-        font-size: 15px;
+        font-size: 14px; 
+        line-height: 1.2;
     }
 
     .loginInfo {
         font-size: 13px;
-        max-width: 200px;
+        line-height: 1.3;
+        white-space: normal;
     }
 
     .wishlistButton {
@@ -167,20 +174,38 @@
     }
 }
 
+/* Small Mobile (480px and below) */
 @media (max-width: 480px) {
-    .imageWrapper {
-        height: 240px;
-    }
-
+    /* Card/Image width and aspect ratio are already fluid */
+    
     .details {
-        padding: 10px 0 0 0;
+        padding: 8px 0 0 0; 
     }
 
     .title {
-        font-size: 14px;
+        font-size: 13px;
+        line-height: 1.2;
     }
 
     .loginInfo {
-        font-size: 12px;
+        font-size: 10px;
+        line-height: 1.2;
+        padding-right: 5px; 
+    }
+    
+    .footer {
+        align-items: flex-start;
+        gap: 5px;
+    }
+
+    .wishlistButton {
+        min-width: 28px;
+        min-height: 28px;
+        padding: 0;
+    }
+    
+    .wishlistButton svg {
+        width: 20px;
+        height: 20px;
     }
 }
